@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More;
 
-my $module = $ENV{EXERCISM} ? 'Example' : 'Raindrops';
+my $module = $ENV{EXERCISM} ? 'Example' : 'Beer';
 
 use JSON qw(from_json);
 
