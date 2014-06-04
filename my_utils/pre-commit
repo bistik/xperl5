@@ -1,0 +1,20 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use 5.010;
+use Capture::Tiny qw(capture);
+
+say "running all tests...";
+my ($result, $err, $exit) = capture { system('perl', 'testall.pl') };
+
+unless ($result =~ m/FAIL/gc) {
+    say "all tests passed";
+    my @files_in_stage = qx{git diff --cached --name-only};
+    say "These files will be committed:";
+    say "@files_in_stage";
+    exit(0);
+}
+
+exit(1); # don't commit
