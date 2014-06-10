@@ -9,9 +9,10 @@ ok -e "$module.pm", "Missing $module.pm" or BAIL_OUT "You need to create file: $
 eval "use $module";
 ok !$@, "Cannot load $module" or BAIL_OUT "Cannot load $module. Does it compile? Does it end with 1;?";
 
-can_ok $module, "new",     or BAIL_OUT "Missing package $module; or missing sub new()";
+can_ok $module, "new",            or BAIL_OUT "Missing package $module; or missing sub new()";
 can_ok $module, "is_pythagorean", or BAIL_OUT "Missing package $module; or missing sub is_pythagorean()";
-can_ok $module, "products", or BAIL_OUT "Missing package $module; or missing sub product()";
+can_ok $module, "sum",            or BAIL_OUT "Missing package $module; or missing sub sum()";
+can_ok $module, "products",       or BAIL_OUT "Missing package $module; or missing sub product()";
 
 my $triplet;
 
